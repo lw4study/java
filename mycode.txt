@@ -1,0 +1,69 @@
+牛牛从生物科研工作者那里获得一段字符串数据s,牛牛需要帮助科研工作者从中找出最长的DNA序列。DNA序列指的是序列中只包括'A','T','C','G'。牛牛觉得这个问题太简单了,就把问题交给你来解决。
+ 例如: s = "ABCBOATER"中包含最长的DNA片段是"AT",所以最长的长度是2。 
+
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        int a=0;
+        int b=0;
+        String str;
+        char[] c = new char[50];
+        Scanner s = new Scanner(System.in);
+        str = s.nextLine();
+        for(int i=0;i<str.length();i++){
+            c[i]=str.charAt(i);
+        }
+        for(int i=0;i<str.length();i++){
+            if(c[i]=='A'||c[i]=='T'||c[i]=='C'||c[i]=='G'){
+                b++;
+                if(i==str.length()-1){
+                    if(a<b){
+                    a=b;
+                }
+                }
+            }else{
+                if(a<b){
+                    a=b;
+                }
+                b=0;
+            }
+        }
+        System.out.println(a);
+    }
+}
+
+
+
+
+
+
+牛牛喜欢彩色的东西,尤其是彩色的瓷砖。牛牛的房间内铺有L块正方形瓷砖。每块砖的颜色有四种可能:红、绿、蓝、黄。
+给定一个字符串S, 如果S的第i个字符是'R', 'G', 'B'或'Y',那么第i块瓷砖的颜色就分别是红、绿、蓝或者黄。
+ 牛牛决定换掉一些瓷砖的颜色,使得相邻两块瓷砖的颜色均不相同。请帮牛牛计算他最少需要换掉的瓷砖数量。
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        int a=0;
+        String str;
+        char color[]=new char[10];
+        Scanner s = new Scanner(System.in); 
+        //System.out.println("请输入代表颜色的字符串：");
+        str = s.nextLine();
+        int len=str.length();
+         
+        for(int i=0;i<str.length();i++){
+        color[i]=str.charAt(i);
+        }
+         
+        for(int j=1;j<str.length();j++){
+            if(color[j-1]==color[j]){
+                a++;
+                j++;
+            }
+        }
+        System.out.println(a);
+    }
+}
+ 
+
+
